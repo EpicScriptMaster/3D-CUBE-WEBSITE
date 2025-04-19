@@ -1,0 +1,49 @@
+/* Basic page styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+  }
+  
+  .scene {
+    width: 200px;
+    height: 200px;
+    perspective: 500px; /* This gives the illusion of 3D */
+    position: relative;
+  }
+  
+  .cube {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    transform: rotateX(-20deg) rotateY(-45deg);
+    animation: rotateCube 5s infinite linear;
+  }
+  
+  .face {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(0, 255, 0, 0.7);
+    border: 2px solid #fff;
+  }
+  
+  /* Face positions */
+  .front  { transform: translateZ(100px); background-color: #ff5733; }
+  .back   { transform: rotateY(180deg) translateZ(100px); background-color: #33c9ff; }
+  .left   { transform: rotateY(-90deg) translateZ(100px); background-color: #ff33ff; }
+  .right  { transform: rotateY(90deg) translateZ(100px); background-color: #33ff57; }
+  .top    { transform: rotateX(90deg) translateZ(100px); background-color: #ffff33; }
+  .bottom { transform: rotateX(-90deg) translateZ(100px); background-color: #ff33cc; }
+  
+  /* Cube rotation animation */
+  @keyframes rotateCube {
+    0% { transform: rotateX(-20deg) rotateY(-45deg); }
+    100% { transform: rotateX(-20deg) rotateY(315deg); }
+  }
+  
